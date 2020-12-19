@@ -198,10 +198,9 @@
 			};
 			buildConfigurationList = 6DB0CD1B1B8462B90069AE39 /* Build configuration list for PBXProject "ACTabScrollView" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);

@@ -27,7 +27,9 @@ open class ACTabScrollView: UIView, UIScrollViewDelegate {
     @IBInspectable open var arrowIndicator: Bool = false
     @IBInspectable open var pagingEnabled: Bool = true {
         didSet {
-            contentSectionScrollView.isPagingEnabled = pagingEnabled
+            #if os(iOS)
+                contentSectionScrollView.isPagingEnabled = pagingEnabled
+            #endif
         }
     }
     @IBInspectable open var cachedPageLimit: Int = 3
@@ -102,12 +104,16 @@ open class ACTabScrollView: UIView, UIScrollViewDelegate {
         self.addSubview(contentSectionScrollView)
         self.addSubview(arrowView)
         
-        tabSectionScrollView.isPagingEnabled = false
+        #if os(iOS)
+            tabSectionScrollView.isPagingEnabled = false
+        #endif
         tabSectionScrollView.showsHorizontalScrollIndicator = false
         tabSectionScrollView.showsVerticalScrollIndicator = false
         tabSectionScrollView.delegate = self
         
-        contentSectionScrollView.isPagingEnabled = pagingEnabled
+        #if os(iOS)
+            contentSectionScrollView.isPagingEnabled = pagingEnabled
+        #endif
         contentSectionScrollView.showsHorizontalScrollIndicator = false
         contentSectionScrollView.showsVerticalScrollIndicator = false
         contentSectionScrollView.delegate = self
